@@ -1,0 +1,18 @@
+[Unit]
+Description=Webapp uWSGI service
+Wants=webapp.proxy.service
+Before=webapp.proxy.service
+
+[Service]
+PIDFile=/var/run/webapp/uwsgi.pid
+ExecStartPre=/bin/mkdir -p /var/run/webapp
+ExecStartPre=/bin/chown webapp:webapp /var/run/webapp
+ExecStart=/var/www/webapp/bin/uwsgi --ini /var/www/webapp/proxy/uwsgi.ini
+ExecReload=/var/www/webapp/bin/uwsgi --reload /var/run/webapp/uwsgi.pid
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target

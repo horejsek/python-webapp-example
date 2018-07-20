@@ -1,0 +1,4 @@
+/usr/sbin/nginx /var/www/webapp/bin/nginx
+/usr/bin/uwsgi /var/www/webapp/bin/uwsgi
+/var/www/webapp/venv/webapp/bin/webapp /var/www/webapp/bin/webapp
+/var/www/webapp/bin/webapp /usr/bin/webapp

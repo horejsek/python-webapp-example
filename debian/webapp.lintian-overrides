@@ -1,0 +1,19 @@
+webapp: dir-or-file-in-var-www
+webapp: maintainer-script-should-not-use-adduser-system-without-home
+
+webapp: binary-without-manpage usr/bin/webapp
+
+webapp: init.d-script-not-marked-as-conffile etc/init.d/webapp
+webapp: init.d-script-not-included-in-package etc/init.d/webapp
+webapp: init.d-script-not-marked-as-conffile etc/init.d/webapp.proxy
+webapp: init.d-script-not-included-in-package etc/init.d/webapp.proxy
+
+webapp: arch-independent-package-contains-binary-or-object var/www/webapp/venv/*
+webapp: embedded-javascript-library var/www/webapp/venv/*
+webapp: embedded-library var/www/webapp/venv/*
+webapp: extra-license-file var/www/webapp/venv/*
+webapp: missing-dependency-on-libc needed by var/www/webapp/venv/*
+webapp: python-script-but-no-python-dep var/www/webapp/venv/*
+webapp: script-not-executable var/www/webapp/venv/*
+webapp: unstripped-binary-or-object var/www/webapp/venv/*
+webapp: wrong-path-for-interpreter var/www/webapp/venv/*

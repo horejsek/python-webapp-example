@@ -1,0 +1,18 @@
+# Python files
+*.pyc
+*.pyo
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+
+# Deb files
+debian/files
+debian/webapp/
+debian/*debhelper*
+debian/*substvars
+
+# Build files
+.pybuild
+.eggs/
+*.egg-info/
+venv/

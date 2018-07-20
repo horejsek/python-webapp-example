@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DH_ALWAYS_EXCLUDE=.pyc:__pycache__
+export DH_VIRTUALENV_INSTALL_ROOT=/var/www/webapp/venv
+
+%:
+	dh $@ --with python-virtualenv --with systemd
+
+override_dh_virtualenv:
+	dh_virtualenv --python /usr/bin/python3 --no-test
+
+override_dh_strip:
+	dh_strip --exclude=.so
+
+override_dh_shlibdeps:
+	# dh_shlibdeps calculates dependencies for shared libraries. We know that Python libraries
+	# written in C are problem and we handle them by hand in control file.
+	dh_shlibdeps --exclude=psycopg2
+
+override_dh_auto_build:
+
+override_dh_auto_test:
+
+override_dh_installinit:
+	# Install all systemd services of our web app.
+	dh_installinit --name=webapp
+	dh_installinit --name=webapp.proxy

@@ -1,0 +1,26 @@
+Source: webapp
+Section: web
+Priority: optional
+Maintainer: Michal Horejsek <horejsekmichal@gmail.com>
+Build-Depends:
+    debhelper (>= 9),
+    dh-systemd (>= 1.3),
+    dh-virtualenv (>= 0.8)
+Standards-Version: 3.9.5
+
+Package: webapp
+Architecture: all
+Pre-Depends:
+    dpkg (>= 1.16.1),
+    ${misc:Pre-Depends}
+Depends:
+    ${shlibs:Depends},
+    ${misc:Depends},
+    adduser,
+    libpq-dev,
+    nginx,
+    python3,
+    uwsgi,
+    uwsgi-plugin-python3
+Description: Example Python website
+ Example of Python website with debian packaging (dh_virtualenv & systemd).

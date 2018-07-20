@@ -1,0 +1,17 @@
+[Unit]
+Description=Webapp NGINX service
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/webapp/nginx.pid
+ExecStartPre=/var/www/webapp/bin/nginx -c /var/www/webapp/proxy/nginx.conf -t
+ExecStartPre=/bin/mkdir -p /var/run/webapp
+ExecStartPre=/bin/chown webapp:webapp /var/run/webapp
+ExecStart=/var/www/webapp/bin/nginx -c /var/www/webapp/proxy/nginx.conf
+ExecReload=/usr/sbin/nginx -c /var/www/webapp/proxy/nginx.conf -s reload
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

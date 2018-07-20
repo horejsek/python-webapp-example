@@ -1,0 +1,14 @@
+/var/log/webapp/*log {
+    daily
+    rotate 30
+    dateext
+    maxage 180
+    compress
+    sharedscripts
+    missingok
+    delaycompress
+    postrotate
+        systemctl reload webapp.service >/dev/null
+        systemctl reload webapp.proxy.service >/dev/null
+    endscript
+}

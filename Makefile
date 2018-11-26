@@ -1,4 +1,4 @@
-.PHONY: all prepare-dev venv lint test run shell clean build install
+.PHONY: all prepare-dev venv lint test run shell clean build install docker
 SHELL=/bin/bash
 
 VENV_NAME?=venv
@@ -70,3 +70,6 @@ build: venv
 install:
 	-dpkg -i ../webapp_1.0_all.deb
 	apt install -f
+
+docker:
+	COMPOSE_FILE=docker/docker-compose.yml docker-compose up --no-deps --build

@@ -104,3 +104,11 @@ Start included service:
     systemctl start webapp
 
 That's it!
+
+## Docker
+
+For comparison I included also simple docker version managed by docker-compose.
+I'm not big fan of docker--I don't think docker is answer for everything--but
+the ideas are the same. To have simple development environment and package for
+the deployment with included configuration files and services. The question
+is whether you need orchestration or just simple plain one instance.

@@ -8,7 +8,7 @@ def get_db():
     db = getattr(flask.g, '_database', None)
     if db is None:
         db = flask.g._database = psycopg2.connect(
-            'dbname=salsacalendar',
+            'dbname=webapp',
             cursor_factory=psycopg2.extras.DictCursor,
         )
     return db

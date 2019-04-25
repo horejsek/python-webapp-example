@@ -12,6 +12,7 @@ ExecStart=/var/www/webapp/bin/nginx -c /var/www/webapp/proxy/nginx.conf
 ExecReload=/usr/sbin/nginx -c /var/www/webapp/proxy/nginx.conf -s reload
 ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
